@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Quick Filter",
+  "version": "1.0",
+  "description": "Quickly filter Gmail results for a selected email address",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "commands": {
+    "quick-filter": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F"
+      },
+      "description": "Activate Quick Filter"
+    }
+  }
+}
+
