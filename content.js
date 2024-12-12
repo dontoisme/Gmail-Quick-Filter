@@ -8,11 +8,10 @@ function getSelectedEmail() {
     
     if (emailRow) {
       const emailCandidates = [
+        emailRow.querySelector('.bA4 .yP'),
         emailRow.querySelector('.yW .zF'),
-        emailRow.querySelector('.bA4 .zF'),
         emailRow.querySelector('.ag.a8k'),
-        emailRow.querySelector('.yP .zF'),
-        emailRow.querySelector('.y6 .zF'),
+        emailRow.querySelector('.bA4 .zF'),
       ];
 
       for (let candidate of emailCandidates) {
@@ -55,7 +54,22 @@ function performQuickFilter() {
     const advancedSearchUrl = `https://mail.google.com/mail/u/0/#advanced-search/from=${encodeURIComponent(selectedEmail)}&query=from%3A(${encodeURIComponent(selectedEmail)})`;
     window.location.href = advancedSearchUrl;
   } else {
-    alert('Please select an email first.');
+    const selectedRow = document.querySelector('.oZ-jc.T-Jo.J-J5-Ji.T-Jo-Jp')?.closest('tr');
+    let debugInfo = 'Please select an email first.';
+    
+    if (selectedRow) {
+      debugInfo += `\nSelected row classes: ${selectedRow.className}`;
+      const emailCell = selectedRow.querySelector('.yW');
+      if (emailCell) {
+        debugInfo += `\nEmail cell classes found: ${emailCell.innerHTML}`;
+      } else {
+        debugInfo += '\nNo email cell (.yW) found';
+      }
+    } else {
+      debugInfo += '\nNo row selected';
+    }
+    
+    alert(debugInfo);
   }
 }
 
