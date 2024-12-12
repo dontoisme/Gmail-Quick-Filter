@@ -26,10 +26,10 @@ function getSelectedEmail() {
     }
   }
 
-  const openEmailSender = document.querySelector('.gD');
+  const openEmailSender = document.querySelector('.gD[email]');
   if (openEmailSender) {
     const email = openEmailSender.getAttribute('email');
-    if (email) {
+    if (email && email.includes('@')) {
       return email;
     }
   }
