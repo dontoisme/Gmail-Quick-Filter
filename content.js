@@ -7,6 +7,7 @@ function getSelectedEmail() {
     const emailRow = selectedCheckbox.closest('tr');
     
     if (emailRow) {
+      // Read and unread emails.
       const emailCandidates = [
         emailRow.querySelector('.bA4 .yP'),
         emailRow.querySelector('.yW .zF'),
