@@ -11,6 +11,8 @@ function getSelectedEmail() {
         emailRow.querySelector('.yW .zF'),
         emailRow.querySelector('.bA4 .zF'),
         emailRow.querySelector('.ag.a8k'),
+        emailRow.querySelector('.yP .zF'),
+        emailRow.querySelector('.y6 .zF'),
       ];
 
       for (let candidate of emailCandidates) {
